@@ -36,7 +36,17 @@
 
   var nav = {
     it: [
-      { slug: 'index',    label: 'Home',     href: '/it/index.html' },
+      {
+        slug: 'index',    label: 'Home',     href: '/it/index.html',
+        children: [
+          { slug: 'index2', label: 'Layout 2', href: '/it/index2.html' },
+          { slug: 'index3', label: 'Layout 3', href: '/it/index3.html' },
+          { slug: 'index4', label: 'Layout 4', href: '/it/index4.html' },
+          { slug: 'index5', label: 'Layout 5', href: '/it/index5.html' },
+          { slug: 'index6', label: 'Layout 6', href: '/it/index6.html' },
+          { slug: 'index7', label: 'Layout 7', href: '/it/index7.html' }
+        ]
+      },
       { slug: 'azienda',  label: 'Azienda',  href: '/it/azienda.html' },
       {
         slug: 'trading',  label: 'Trading',  href: '/it/trading.html',
@@ -46,22 +56,18 @@
         ]
       },
       { slug: 'servizi',  label: 'Servizi',  href: '/it/servizi.html' },
-      { slug: 'contatti', label: 'Contatti', href: '/it/contatti.html' },
-      /* TEMPORARY — dev layout comparison; remove before launch */
-      {
-        slug: 'index-alt', label: '[Dev]', href: '#', temp: true,
-        children: [
-          { slug: 'index2', label: 'Layout 2', href: '/it/index2.html' },
-          { slug: 'index3', label: 'Layout 3', href: '/it/index3.html' },
-          { slug: 'index4', label: 'Layout 4', href: '/it/index4.html' },
-          { slug: 'index5', label: 'Layout 5', href: '/it/index5.html' },
-          { slug: 'index6', label: 'Layout 6', href: '/it/index6.html' },
-          { slug: 'index7', label: 'Layout 7', href: '/it/index7.html' }
-        ]
-      }
+      { slug: 'contatti', label: 'Contatti', href: '/it/contatti.html' }
     ],
     en: [
-      { slug: 'index',    label: 'Home',    href: '/en/index.html' },
+      {
+        slug: 'index',    label: 'Home',    href: '/en/index.html',
+        children: [
+          { slug: 'index2', label: 'Layout 2', href: '/en/index2.html' },
+          { slug: 'index3', label: 'Layout 3', href: '/en/index3.html' },
+          { slug: 'index4', label: 'Layout 4', href: '/en/index4.html' },
+          { slug: 'index5', label: 'Layout 5', href: '/en/index5.html' }
+        ]
+      },
       { slug: 'company',  label: 'Company', href: '/en/company.html' },
       {
         slug: 'trading',  label: 'Trading', href: '/en/trading.html',
@@ -71,17 +77,7 @@
         ]
       },
       { slug: 'services', label: 'Services', href: '/en/services.html' },
-      { slug: 'contact',  label: 'Contact',  href: '/en/contact.html' },
-      /* TEMPORARY — dev layout comparison; remove before launch */
-      {
-        slug: 'index-alt', label: '[Dev]', href: '#', temp: true,
-        children: [
-          { slug: 'index2', label: 'Layout 2', href: '/en/index2.html' },
-          { slug: 'index3', label: 'Layout 3', href: '/en/index3.html' },
-          { slug: 'index4', label: 'Layout 4', href: '/en/index4.html' },
-          { slug: 'index5', label: 'Layout 5', href: '/en/index5.html' }
-        ]
-      }
+      { slug: 'contact',  label: 'Contact',  href: '/en/contact.html' }
     ]
   };
 
