@@ -87,7 +87,21 @@
 
   function getLang() {
     var parts = window.location.pathname.split('/').filter(Boolean);
-    return parts[0] === 'en' ? 'en' : 'it';
+    for (var i = 0; i < parts.length; i++) {
+      if (parts[i] === 'en') return 'en';
+      if (parts[i] === 'it') return 'it';
+    }
+    return 'it';
+  }
+
+  function getBase() {
+    var parts = window.location.pathname.split('/').filter(Boolean);
+    for (var i = 0; i < parts.length; i++) {
+      if (parts[i] === 'en' || parts[i] === 'it') {
+        return i > 0 ? '/' + parts.slice(0, i).join('/') : '';
+      }
+    }
+    return '';
   }
 
   function getSlug() {
@@ -98,6 +112,7 @@
   function renderHeader() {
     var lang = getLang();
     var slug = getSlug();
+    var base = getBase();
     var items = nav[lang];
     var otherLang = lang === 'it' ? 'EN' : 'IT';
     var i, j, lis = '';
@@ -115,14 +130,14 @@
       var isActive = item.slug === slug || isChildActive;
       var activeAttr = isActive ? ' class="active"' : '';
       var liClass = item.temp ? ' class="nav-temp"' : '';
-      var li = '<li' + liClass + '><a href="' + item.href + '"' + activeAttr + '>' + item.label + '</a>';
+      var li = '<li' + liClass + '><a href="' + base + item.href + '"' + activeAttr + '>' + item.label + '</a>';
 
       if (item.children && item.children.length) {
         li += '<ul class="nav-dropdown">';
         for (j = 0; j < item.children.length; j++) {
           var child = item.children[j];
           var childActive = child.slug === slug ? ' class="active"' : '';
-          li += '<li><a href="' + child.href + '"' + childActive + '>' + child.label + '</a></li>';
+          li += '<li><a href="' + base + child.href + '"' + childActive + '>' + child.label + '</a></li>';
         }
         li += '</ul>';
       }
@@ -147,8 +162,8 @@
     header.className = 'site-header';
     header.innerHTML =
       '<div class="header-inner">' +
-        '<a href="/' + lang + '/index.html">' +
-          '<img src="/assets/images/logo.png" alt="Temmes" class="logo">' +
+        '<a href="' + base + '/' + lang + '/index.html">' +
+          '<img src="' + base + '/assets/images/logo.png" alt="Temmes" class="logo">' +
         '</a>' +
         '<nav class="main-nav">' +
           '<ul>' + lis + '</ul>' +
@@ -199,15 +214,16 @@
   function switchLanguage() {
     var lang = getLang();
     var slug = getSlug();
+    var base = getBase();
     var i, target;
 
     if (lang === 'it') {
       for (i = 0; i < slugMap.length; i++) {
-        if (slugMap[i][0] === slug) { target = '/en/' + slugMap[i][1] + '.html'; break; }
+        if (slugMap[i][0] === slug) { target = base + '/en/' + slugMap[i][1] + '.html'; break; }
       }
     } else {
       for (i = 0; i < slugMap.length; i++) {
-        if (slugMap[i][1] === slug) { target = '/it/' + slugMap[i][0] + '.html'; break; }
+        if (slugMap[i][1] === slug) { target = base + '/it/' + slugMap[i][0] + '.html'; break; }
       }
     }
 
