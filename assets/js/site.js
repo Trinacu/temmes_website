@@ -30,8 +30,7 @@
     ['index3',            'index3'],
     ['index4',            'index4'],
     ['index5',            'index5'],
-    ['index6',            'index6'],
-    ['index7',            'index7']
+    ['index6',            'index6']
   ];
 
   var nav = {
@@ -43,8 +42,7 @@
           { slug: 'index3', label: 'Layout 3', href: '/it/index3.html' },
           { slug: 'index4', label: 'Layout 4', href: '/it/index4.html' },
           { slug: 'index5', label: 'Layout 5', href: '/it/index5.html' },
-          { slug: 'index6', label: 'Layout 6', href: '/it/index6.html' },
-          { slug: 'index7', label: 'Layout 7', href: '/it/index7.html' }
+          { slug: 'index6', label: 'Layout 6', href: '/it/index6.html' }
         ]
       },
       { slug: 'azienda',  label: 'Azienda',  href: '/it/azienda.html' },
@@ -65,7 +63,8 @@
           { slug: 'index2', label: 'Layout 2', href: '/en/index2.html' },
           { slug: 'index3', label: 'Layout 3', href: '/en/index3.html' },
           { slug: 'index4', label: 'Layout 4', href: '/en/index4.html' },
-          { slug: 'index5', label: 'Layout 5', href: '/en/index5.html' }
+          { slug: 'index5', label: 'Layout 5', href: '/en/index5.html' },
+          { slug: 'index6', label: 'Layout 6', href: '/en/index6.html' }
         ]
       },
       { slug: 'company',  label: 'Company', href: '/en/company.html' },
