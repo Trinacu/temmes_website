@@ -4,22 +4,22 @@
 
 /* --- Fonts --- */
 @font-face {
-  font-family: 'Inter';
-  src: url('../fonts/Inter-Regular.woff2') format('woff2');
+  font-family: 'Outfit';
+  src: url('../fonts/Outfit-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Inter';
-  src: url('../fonts/Inter-SemiBold.woff2') format('woff2');
+  font-family: 'Outfit';
+  src: url('../fonts/Outfit-SemiBold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Inter';
-  src: url('../fonts/Inter-Bold.woff2') format('woff2');
+  font-family: 'Outfit';
+  src: url('../fonts/Outfit-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -45,6 +45,7 @@
   --color-dropdown-bg: rgba(17, 17, 17, 0.96);
   --header-height: 72px;
   --max-width: 1100px;
+  --font-sans: 'Outfit', Arial, sans-serif;
 }
 
 /* --- Themes --- */
@@ -106,7 +107,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: var(--font-sans);
   color: var(--color-dark);
   background: var(--color-bg);
   line-height: 1.7;
@@ -169,7 +170,6 @@ ul {
 }
 
 .main-nav a {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.8125rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -229,7 +229,6 @@ ul {
   border: 1px solid var(--color-accent);
   color: var(--color-accent);
   padding: 0.3rem 0.75rem;
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   cursor: pointer;
@@ -309,7 +308,6 @@ ul {
 }
 
 .section-label {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -384,7 +382,6 @@ ul {
 }
 
 .stat-label {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.6875rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -429,7 +426,6 @@ ul {
 }
 
 .position-tag {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.6875rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -488,7 +484,6 @@ ul {
 }
 
 .card-title {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.8125rem;
   font-weight: bold;
   letter-spacing: 0.1em;
@@ -545,7 +540,6 @@ a.card .card-title::after {
 }
 
 .contact-label {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -571,7 +565,6 @@ a.card .card-title::after {
 }
 
 .email-role {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.75rem;
   color: var(--color-muted);
 }
@@ -591,7 +584,6 @@ a.card .card-title::after {
   color: var(--color-muted);
   padding: 2rem;
   text-align: center;
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.8125rem;
   letter-spacing: 0.05em;
 }
@@ -688,7 +680,6 @@ a.card .card-title::after {
 }
 
 .hero-split-text p {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -754,7 +745,6 @@ a.card .card-title::after {
 }
 
 .block-title {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -790,7 +780,6 @@ a.card .card-title::after {
 }
 
 .cta-link {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.8125rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -820,7 +809,6 @@ a.card .card-title::after {
 }
 
 .hero-type-eyebrow {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.6875rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -845,7 +833,6 @@ a.card .card-title::after {
 }
 
 .hero-type-tagline {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.6875rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -880,7 +867,6 @@ a.card .card-title::after {
 }
 
 .intro-footnote {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.6875rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -902,7 +888,6 @@ a.card .card-title::after {
 }
 
 .pillar-index {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.6875rem;
   letter-spacing: 0.12em;
   color: var(--color-accent);
@@ -956,7 +941,6 @@ a.card .card-title::after {
 }
 
 .stats-full-label {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.6875rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -1016,7 +1000,6 @@ a.card .card-title::after {
 }
 
 .routes-tag {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.875rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1066,7 +1049,6 @@ a.card .card-title::after {
 }
 
 .service-row-index {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.6875rem;
   letter-spacing: 0.1em;
   color: var(--color-accent);
@@ -1162,7 +1144,6 @@ a.card .card-title::after {
 }
 
 .geography-cell-name {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.8125rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1226,7 +1207,6 @@ a.card .card-title::after {
 }
 
 .keyword-item {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.6875rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -1234,7 +1214,6 @@ a.card .card-title::after {
 }
 
 .keyword-sep {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.6875rem;
   color: #2a2a2a;
 }
@@ -1272,7 +1251,6 @@ a.card .card-title::after {
 }
 
 .mega-stat-label {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -1309,7 +1287,6 @@ a.card .card-title::after {
 }
 
 .company-text-aside-label {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.625rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -1377,7 +1354,6 @@ a.card .card-title::after {
 }
 
 .geo-band-sub {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.625rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -1441,7 +1417,6 @@ a.card .card-title::after {
 
 .cta-button {
   display: inline-block;
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.8125rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1466,14 +1441,12 @@ a.card .card-title::after {
 
 /* Shared label tokens */
 .d6-idx {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.625rem;
   letter-spacing: 0.2em;
   color: var(--color-accent);
 }
 
 .d6-lbl {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.625rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -1500,7 +1473,6 @@ a.card .card-title::after {
 }
 
 .d6-masthead-meta span {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.625rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -1544,7 +1516,6 @@ a.card .card-title::after {
 }
 
 .d6-masthead-caption p {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.6875rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -1642,7 +1613,6 @@ a.card .card-title::after {
 }
 
 .d6-fig-label {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.625rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -1715,7 +1685,6 @@ a.card .card-title::after {
 }
 
 .d6-geo-num {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.625rem;
   letter-spacing: 0.2em;
   color: var(--color-accent);
@@ -1730,7 +1699,6 @@ a.card .card-title::after {
 }
 
 .d6-geo-sub {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.625rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -1758,7 +1726,6 @@ a.card .card-title::after {
 }
 
 .d6-exp-category {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.625rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -1811,7 +1778,6 @@ a.card .card-title::after {
 }
 
 .d6-contact-link {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -1853,7 +1819,6 @@ a.card .card-title::after {
   border: 1px solid var(--color-accent);
   color: var(--color-accent);
   padding: 0.3rem 0.75rem;
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   cursor: pointer;
@@ -1889,7 +1854,6 @@ a.card .card-title::after {
   gap: 0.6rem;
   padding: 0.5rem 1.25rem;
   cursor: pointer;
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1964,7 +1928,6 @@ a.card .card-title::after {
 }
 
 .mc-eyebrow {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.625rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -2014,7 +1977,6 @@ a.card .card-title::after {
 }
 
 .mc-stat-lbl {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.625rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -2054,7 +2016,6 @@ a.card .card-title::after {
 }
 
 .mc-svc-idx {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.625rem;
   letter-spacing: 0.2em;
   color: var(--color-accent);
@@ -2082,7 +2043,6 @@ a.card .card-title::after {
 }
 
 .mc-about-label {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.625rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -2115,7 +2075,6 @@ a.card .card-title::after {
 }
 
 .mc-geo-label {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.625rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -2138,7 +2097,6 @@ a.card .card-title::after {
 }
 
 .mc-geo-sep {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.875rem;
   color: var(--color-border);
 }
@@ -2153,7 +2111,6 @@ a.card .card-title::after {
 }
 
 .mc-exp-label {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.625rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -2184,7 +2141,6 @@ a.card .card-title::after {
 }
 
 .mc-cta-label {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.625rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -2202,7 +2158,6 @@ a.card .card-title::after {
 }
 
 .mc-cta-link {
-  font-family: 'Inter', Arial, sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temmes — Font Preview</title>
+  <style>
+    /* ── Fonts ─────────────────────────────────────────── */
+    @font-face { font-family:'Inter';            src:url('assets/fonts/Inter-Regular.woff2')         format('woff2'); font-weight:400; font-display:swap; }
+    @font-face { font-family:'Inter';            src:url('assets/fonts/Inter-SemiBold.woff2')        format('woff2'); font-weight:600; font-display:swap; }
+    @font-face { font-family:'Inter';            src:url('assets/fonts/Inter-Bold.woff2')            format('woff2'); font-weight:700; font-display:swap; }
+
+    @font-face { font-family:'Plus Jakarta Sans'; src:url('assets/fonts/PlusJakartaSans-Regular.ttf') format('truetype'); font-weight:400; font-display:swap; }
+    @font-face { font-family:'Plus Jakarta Sans'; src:url('assets/fonts/PlusJakartaSans-SemiBold.ttf') format('truetype'); font-weight:600; font-display:swap; }
+    @font-face { font-family:'Plus Jakarta Sans'; src:url('assets/fonts/PlusJakartaSans-Bold.ttf')   format('truetype'); font-weight:700; font-display:swap; }
+
+    @font-face { font-family:'IBM Plex Sans';    src:url('assets/fonts/IBMPlexSans-Regular.woff2')  format('woff2'); font-weight:400; font-display:swap; }
+    @font-face { font-family:'IBM Plex Sans';    src:url('assets/fonts/IBMPlexSans-SemiBold.woff2') format('woff2'); font-weight:600; font-display:swap; }
+    @font-face { font-family:'IBM Plex Sans';    src:url('assets/fonts/IBMPlexSans-Bold.woff2')     format('woff2'); font-weight:700; font-display:swap; }
+
+    @font-face { font-family:'DM Sans';          src:url('assets/fonts/DMSans-Regular.ttf')         format('truetype'); font-weight:400; font-display:swap; }
+    @font-face { font-family:'DM Sans';          src:url('assets/fonts/DMSans-Bold.ttf')            format('truetype'); font-weight:700; font-display:swap; }
+
+    @font-face { font-family:'Outfit';           src:url('assets/fonts/Outfit-Regular.woff2')       format('woff2'); font-weight:400; font-display:swap; }
+    @font-face { font-family:'Outfit';           src:url('assets/fonts/Outfit-SemiBold.woff2')      format('woff2'); font-weight:600; font-display:swap; }
+    @font-face { font-family:'Outfit';           src:url('assets/fonts/Outfit-Bold.woff2')          format('woff2'); font-weight:700; font-display:swap; }
+
+    /* ── Reset & base ──────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:    #c9a84c;
+      --dark:    #111111;
+      --muted:   #888888;
+      --border:  #e0dcd5;
+      --surface: #f7f6f4;
+    }
+
+    body { background: #fff; color: var(--dark); }
+
+    /* ── Sticky picker bar ─────────────────────────────── */
+    .picker {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--dark);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      border-bottom: 2px solid var(--gold);
+    }
+    .picker-label {
+      padding: 0 1.5rem;
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .picker nav {
+      display: flex;
+      gap: 0;
+      flex: 1;
+    }
+    .picker nav a {
+      display: block;
+      padding: .75rem 1.25rem;
+      color: #ccc;
+      text-decoration: none;
+      border-left: 1px solid #2a2a2a;
+      transition: background .15s, color .15s;
+      white-space: nowrap;
+    }
+    .picker nav a:hover { background: #1e1e1e; color: #fff; }
+    .picker nav a strong { color: var(--gold); }
+
+    /* ── Each font section ─────────────────────────────── */
+    .font-section {
+      border-bottom: 3px solid var(--dark);
+      padding: 4rem 0 5rem;
+    }
+    .font-section:nth-child(even) { background: var(--surface); }
+
+    .fs-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    /* label strip */
+    .fs-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      margin-bottom: 3rem;
+      padding: .4rem 1rem .4rem .6rem;
+      border: 1.5px solid var(--border);
+      border-radius: 4px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .fs-badge-letter {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 3px;
+      background: var(--dark);
+      color: #fff;
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .fs-badge strong { color: var(--dark); font-size: 13px; }
+
+    /* nav row */
+    .fs-nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      padding: .6rem 0;
+      margin-bottom: 2.5rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+    .fs-nav-active { color: var(--dark); }
+    .fs-nav-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* headline */
+    .fs-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .5rem;
+    }
+    .fs-h1 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: .75rem;
+      color: var(--dark);
+    }
+    .fs-sub {
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+
+    /* body text */
+    .fs-body {
+      font-size: .975rem;
+      line-height: 1.75;
+      color: #333;
+      max-width: 640px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* cards row */
+    .fs-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .fs-card {
+      padding: 1.25rem 1.25rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+    .fs-card-title {
+      font-size: .8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--gold);
+      margin-bottom: .4rem;
+    }
+    .fs-card-text {
+      font-size: .875rem;
+      line-height: 1.55;
+      color: #555;
+    }
+
+    /* stats row */
+    .fs-stats {
+      display: flex;
+      gap: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .fs-stat-num {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1;
+    }
+    .fs-stat-label {
+      font-size: .75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+      margin-top: .3rem;
+    }
+
+    /* ── Font-specific application ─────────────────────── */
+    .font-a { font-family: 'Inter',            Arial, sans-serif; }
+    .font-b { font-family: 'Plus Jakarta Sans', Arial, sans-serif; }
+    .font-c { font-family: 'IBM Plex Sans',    Arial, sans-serif; }
+    .font-d { font-family: 'DM Sans',          Arial, sans-serif; }
+    .font-e { font-family: 'Outfit',           Arial, sans-serif; }
+  </style>
+</head>
+<body>
+
+  <div class="picker">
+    <span class="picker-label">Scegli il font →</span>
+    <nav>
+      <a href="#font-a"><strong>A</strong> &nbsp;Inter</a>
+      <a href="#font-b"><strong>B</strong> &nbsp;Plus Jakarta Sans</a>
+      <a href="#font-c"><strong>C</strong> &nbsp;IBM Plex Sans</a>
+      <a href="#font-d"><strong>D</strong> &nbsp;DM Sans</a>
+      <a href="#font-e"><strong>E</strong> &nbsp;Outfit</a>
+    </nav>
+  </div>
+
+  <!-- ── A: Inter ──────────────────────────────────────── -->
+  <section class="font-section font-a" id="font-a">
+    <div class="fs-inner">
+      <div class="fs-badge">
+        <span class="fs-badge-letter">A</span>
+        <strong>Inter</strong> &nbsp;—&nbsp; Geometrico, neutro, standard fintech
+      </div>
+      <div class="fs-nav">
+        <span class="fs-nav-active">Home</span>
+        <span>Azienda</span>
+        <span>Trading</span>
+        <span>Servizi</span>
+        <span>Contatti</span>
+        <span class="fs-nav-dot"></span>
+      </div>
+      <p class="fs-label">Commercio Internazionale</p>
+      <h1 class="fs-h1">Un ponte nel trading<br>tra est e ovest dell'Europa</h1>
+      <p class="fs-sub">Commercio internazionale. Affidabilità globale.</p>
+      <p class="fs-body">Temmes opera nel settore del commercio internazionale offrendo soluzioni di import/export su misura per aziende che vogliono espandere la propria presenza sui mercati globali. Con un approccio orientato alla concretezza e alla continuità, affianchiamo i nostri clienti in ogni fase della catena commerciale.</p>
+      <div class="fs-cards">
+        <div class="fs-card">
+          <p class="fs-card-title">Trading</p>
+          <p class="fs-card-text">Gestione di operazioni commerciali internazionali con attenzione alla qualità e alla tempistica.</p>
+        </div>
+        <div class="fs-card">
+          <p class="fs-card-title">Logistica</p>
+          <p class="fs-card-text">Coordinamento della supply chain per garantire consegne puntuali e processi efficienti.</p>
+        </div>
+        <div class="fs-card">
+          <p class="fs-card-title">Mercati</p>
+          <p class="fs-card-text">Presenza su mercati europei, asiatici e del Medio Oriente con reti consolidate.</p>
+        </div>
+      </div>
+      <div class="fs-stats">
+        <div><div class="fs-stat-num">20+</div><div class="fs-stat-label">Anni di attività</div></div>
+        <div><div class="fs-stat-num">3</div><div class="fs-stat-label">Settori principali</div></div>
+        <div><div class="fs-stat-num">20+</div><div class="fs-stat-label">Paesi attivi</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── B: Plus Jakarta Sans ──────────────────────────── -->
+  <section class="font-section font-b" id="font-b">
+    <div class="fs-inner">
+      <div class="fs-badge">
+        <span class="fs-badge-letter">B</span>
+        <strong>Plus Jakarta Sans</strong> &nbsp;—&nbsp; Contemporaneo, leggermente distintivo
+      </div>
+      <div class="fs-nav">
+        <span class="fs-nav-active">Home</span>
+        <span>Azienda</span>
+        <span>Trading</span>
+        <span>Servizi</span>
+        <span>Contatti</span>
+        <span class="fs-nav-dot"></span>
+      </div>
+      <p class="fs-label">Commercio Internazionale</p>
+      <h1 class="fs-h1">Un ponte nel trading<br>tra est e ovest dell'Europa</h1>
+      <p class="fs-sub">Commercio internazionale. Affidabilità globale.</p>
+      <p class="fs-body">Temmes opera nel settore del commercio internazionale offrendo soluzioni di import/export su misura per aziende che vogliono espandere la propria presenza sui mercati globali. Con un approccio orientato alla concretezza e alla continuità, affianchiamo i nostri clienti in ogni fase della catena commerciale.</p>
+      <div class="fs-cards">
+        <div class="fs-card">
+          <p class="fs-card-title">Trading</p>
+          <p class="fs-card-text">Gestione di operazioni commerciali internazionali con attenzione alla qualità e alla tempistica.</p>
+        </div>
+        <div class="fs-card">
+          <p class="fs-card-title">Logistica</p>
+          <p class="fs-card-text">Coordinamento della supply chain per garantire consegne puntuali e processi efficienti.</p>
+        </div>
+        <div class="fs-card">
+          <p class="fs-card-title">Mercati</p>
+          <p class="fs-card-text">Presenza su mercati europei, asiatici e del Medio Oriente con reti consolidate.</p>
+        </div>
+      </div>
+      <div class="fs-stats">
+        <div><div class="fs-stat-num">20+</div><div class="fs-stat-label">Anni di attività</div></div>
+        <div><div class="fs-stat-num">3</div><div class="fs-stat-label">Settori principali</div></div>
+        <div><div class="fs-stat-num">20+</div><div class="fs-stat-label">Paesi attivi</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── C: IBM Plex Sans ──────────────────────────────── -->
+  <section class="font-section font-c" id="font-c">
+    <div class="fs-inner">
+      <div class="fs-badge">
+        <span class="fs-badge-letter">C</span>
+        <strong>IBM Plex Sans</strong> &nbsp;—&nbsp; Strutturato, corporate, editoriale
+      </div>
+      <div class="fs-nav">
+        <span class="fs-nav-active">Home</span>
+        <span>Azienda</span>
+        <span>Trading</span>
+        <span>Servizi</span>
+        <span>Contatti</span>
+        <span class="fs-nav-dot"></span>
+      </div>
+      <p class="fs-label">Commercio Internazionale</p>
+      <h1 class="fs-h1">Un ponte nel trading<br>tra est e ovest dell'Europa</h1>
+      <p class="fs-sub">Commercio internazionale. Affidabilità globale.</p>
+      <p class="fs-body">Temmes opera nel settore del commercio internazionale offrendo soluzioni di import/export su misura per aziende che vogliono espandere la propria presenza sui mercati globali. Con un approccio orientato alla concretezza e alla continuità, affianchiamo i nostri clienti in ogni fase della catena commerciale.</p>
+      <div class="fs-cards">
+        <div class="fs-card">
+          <p class="fs-card-title">Trading</p>
+          <p class="fs-card-text">Gestione di operazioni commerciali internazionali con attenzione alla qualità e alla tempistica.</p>
+        </div>
+        <div class="fs-card">
+          <p class="fs-card-title">Logistica</p>
+          <p class="fs-card-text">Coordinamento della supply chain per garantire consegne puntuali e processi efficienti.</p>
+        </div>
+        <div class="fs-card">
+          <p class="fs-card-title">Mercati</p>
+          <p class="fs-card-text">Presenza su mercati europei, asiatici e del Medio Oriente con reti consolidate.</p>
+        </div>
+      </div>
+      <div class="fs-stats">
+        <div><div class="fs-stat-num">20+</div><div class="fs-stat-label">Anni di attività</div></div>
+        <div><div class="fs-stat-num">3</div><div class="fs-stat-label">Settori principali</div></div>
+        <div><div class="fs-stat-num">20+</div><div class="fs-stat-label">Paesi attivi</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── D: DM Sans ────────────────────────────────────── -->
+  <section class="font-section font-d" id="font-d">
+    <div class="fs-inner">
+      <div class="fs-badge">
+        <span class="fs-badge-letter">D</span>
+        <strong>DM Sans</strong> &nbsp;—&nbsp; Minimale, caldo, accessibile
+      </div>
+      <div class="fs-nav">
+        <span class="fs-nav-active">Home</span>
+        <span>Azienda</span>
+        <span>Trading</span>
+        <span>Servizi</span>
+        <span>Contatti</span>
+        <span class="fs-nav-dot"></span>
+      </div>
+      <p class="fs-label">Commercio Internazionale</p>
+      <h1 class="fs-h1">Un ponte nel trading<br>tra est e ovest dell'Europa</h1>
+      <p class="fs-sub">Commercio internazionale. Affidabilità globale.</p>
+      <p class="fs-body">Temmes opera nel settore del commercio internazionale offrendo soluzioni di import/export su misura per aziende che vogliono espandere la propria presenza sui mercati globali. Con un approccio orientato alla concretezza e alla continuità, affianchiamo i nostri clienti in ogni fase della catena commerciale.</p>
+      <div class="fs-cards">
+        <div class="fs-card">
+          <p class="fs-card-title">Trading</p>
+          <p class="fs-card-text">Gestione di operazioni commerciali internazionali con attenzione alla qualità e alla tempistica.</p>
+        </div>
+        <div class="fs-card">
+          <p class="fs-card-title">Logistica</p>
+          <p class="fs-card-text">Coordinamento della supply chain per garantire consegne puntuali e processi efficienti.</p>
+        </div>
+        <div class="fs-card">
+          <p class="fs-card-title">Mercati</p>
+          <p class="fs-card-text">Presenza su mercati europei, asiatici e del Medio Oriente con reti consolidate.</p>
+        </div>
+      </div>
+      <div class="fs-stats">
+        <div><div class="fs-stat-num">20+</div><div class="fs-stat-label">Anni di attività</div></div>
+        <div><div class="fs-stat-num">3</div><div class="fs-stat-label">Settori principali</div></div>
+        <div><div class="fs-stat-num">20+</div><div class="fs-stat-label">Paesi attivi</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── E: Outfit ─────────────────────────────────────── -->
+  <section class="font-section font-e" id="font-e">
+    <div class="fs-inner">
+      <div class="fs-badge">
+        <span class="fs-badge-letter">E</span>
+        <strong>Outfit</strong> &nbsp;—&nbsp; Geometrico fresco, più espressivo
+      </div>
+      <div class="fs-nav">
+        <span class="fs-nav-active">Home</span>
+        <span>Azienda</span>
+        <span>Trading</span>
+        <span>Servizi</span>
+        <span>Contatti</span>
+        <span class="fs-nav-dot"></span>
+      </div>
+      <p class="fs-label">Commercio Internazionale</p>
+      <h1 class="fs-h1">Un ponte nel trading<br>tra est e ovest dell'Europa</h1>
+      <p class="fs-sub">Commercio internazionale. Affidabilità globale.</p>
+      <p class="fs-body">Temmes opera nel settore del commercio internazionale offrendo soluzioni di import/export su misura per aziende che vogliono espandere la propria presenza sui mercati globali. Con un approccio orientato alla concretezza e alla continuità, affianchiamo i nostri clienti in ogni fase della catena commerciale.</p>
+      <div class="fs-cards">
+        <div class="fs-card">
+          <p class="fs-card-title">Trading</p>
+          <p class="fs-card-text">Gestione di operazioni commerciali internazionali con attenzione alla qualità e alla tempistica.</p>
+        </div>
+        <div class="fs-card">
+          <p class="fs-card-title">Logistica</p>
+          <p class="fs-card-text">Coordinamento della supply chain per garantire consegne puntuali e processi efficienti.</p>
+        </div>
+        <div class="fs-card">
+          <p class="fs-card-title">Mercati</p>
+          <p class="fs-card-text">Presenza su mercati europei, asiatici e del Medio Oriente con reti consolidate.</p>
+        </div>
+      </div>
+      <div class="fs-stats">
+        <div><div class="fs-stat-num">20+</div><div class="fs-stat-label">Anni di attività</div></div>
+        <div><div class="fs-stat-num">3</div><div class="fs-stat-label">Settori principali</div></div>
+        <div><div class="fs-stat-num">20+</div><div class="fs-stat-label">Paesi attivi</div></div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
