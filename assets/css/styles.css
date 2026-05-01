@@ -2194,3 +2194,8 @@ a.card .card-title::after {
   color: var(--white);
   border-color: var(--white);
 }
+
+/* --- Page variant overrides --- */
+.variant-7 .hero {
+  background-image: url("../images/hero_port.jpeg");
+}
