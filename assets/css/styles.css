@@ -263,11 +263,11 @@ ul {
 }
 
 .hero--home {
-  min-height: max(50vh, 480px);
+  min-height: max(60vh, 540px);
 }
 
 .hero--page {
-  min-height: max(30vh, 260px);
+  min-height: max(40vh, 400px);
 }
 
 .hero-inner {
@@ -846,28 +846,37 @@ a.card .card-title::after {
 
 /* --- Image Strip (index3) --- */
 .image-strip {
-  height: 45vh;
-  min-height: 280px;
+  position: relative;
+  height: 55vh;
+  min-height: 340px;
   background-image: url("../images/gemini_hero2.jpg");
   background-size: cover;
   background-position: center 35%;
-}
-
-/* --- Intro Section (index3) --- */
-.intro-section {
-  padding: 6rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-.intro-section .container {
+.image-strip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.image-strip-inner {
+  position: relative;
+  z-index: 1;
   max-width: 760px;
+  padding: 0 2rem;
 }
 
 .intro-quote {
   font-size: 1.875rem;
   font-weight: normal;
   line-height: 1.5;
-  color: var(--color-dark);
+  color: var(--white);
   margin-bottom: 2rem;
 }
 
@@ -875,7 +884,7 @@ a.card .card-title::after {
   font-size: 0.6875rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--color-muted);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 /* --- Pillars List (index3) --- */
