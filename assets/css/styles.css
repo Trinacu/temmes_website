@@ -848,7 +848,7 @@ a.card .card-title::after {
 .image-strip {
   height: 45vh;
   min-height: 280px;
-  background-image: url("../images/hero_gpt.png");
+  background-image: url("../images/gemini_hero.jpg");
   background-size: cover;
   background-position: center 35%;
 }
