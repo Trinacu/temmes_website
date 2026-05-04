@@ -242,6 +242,7 @@ ul {
 
 /* --- Hero --- */
 .hero {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -254,6 +255,13 @@ ul {
   padding: 2rem;
 }
 
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
 .hero--home {
   min-height: max(50vh, 480px);
 }
@@ -263,11 +271,8 @@ ul {
 }
 
 .hero-inner {
-  text-shadow:
-    -1px -1px 0 rgba(0, 0, 0, 0.75),
-     1px -1px 0 rgba(0, 0, 0, 0.75),
-    -1px  1px 0 rgba(0, 0, 0, 0.75),
-     1px  1px 0 rgba(0, 0, 0, 0.75);
+  position: relative;
+  z-index: 1;
 }
 
 .hero-inner h1 {
