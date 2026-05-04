@@ -802,7 +802,6 @@ a.card .card-title::after {
 
 /* --- index3: Typographic Hero --- */
 .hero--type {
-  background: var(--color-dark);
   min-height: 100vh;
   flex-direction: column;
   padding: 2rem;
