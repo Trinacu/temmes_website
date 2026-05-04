@@ -246,7 +246,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("../images/gemini_hero.jpg");
+  background-image: url("../images/gemini_hero2.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -848,7 +848,7 @@ a.card .card-title::after {
 .image-strip {
   height: 45vh;
   min-height: 280px;
-  background-image: url("../images/gemini_hero.jpg");
+  background-image: url("../images/gemini_hero2.jpg");
   background-size: cover;
   background-position: center 35%;
 }
